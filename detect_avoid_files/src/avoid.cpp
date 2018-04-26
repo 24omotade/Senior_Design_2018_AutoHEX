@@ -129,13 +129,22 @@ int main(int argc, char **argv){
     
     
     ROS_INFO("Check");
-
+    
+    
+    
+    ////////////////////////////////////////////
+    ///////////////////DO STUFF/////////////////////
+    ////////////////////////////////////////////
+    sleep(10); // indicating that the drone is sleeping for ten seconds
+    //"do stuff" is optional but in this section you can make the drone perform other functions like obtaniing images through a camera
+   
+    
     ////////////////////////////////////////////
     ///////////////////LAND/////////////////////
     ////////////////////////////////////////////
     ros::ServiceClient land_cl = n.serviceClient<mavros_msgs::CommandTOL>("/mavros/cmd/land");
     mavros_msgs::CommandTOL srv_land;
-    srv_land.request.altitude = 0;
+    srv_land.request.altitude = 10; //parameters for landing
     srv_land.request.latitude = 0;
     srv_land.request.longitude = 0;
     srv_land.request.min_pitch = 0;
